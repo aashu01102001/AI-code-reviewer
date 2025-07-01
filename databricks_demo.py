@@ -8,5 +8,5 @@ files = dbutils.fs.ls("/databricks-datasets")
 for f in files:
     print(f.name)
 
-# new line to trigger PR
-print("New line to test another PR event")
+# NEW CHANGE FOR TEST
+print("✅ This is a new test line for PR review by the AI reviewer.")
