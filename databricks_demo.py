@@ -8,5 +8,5 @@ files = dbutils.fs.ls("/databricks-datasets")
 for f in files:
     print(f.name)
 
-# NEW CHANGE FOR TEST
-print("✅ This is a new test line for PR review by the AI reviewer.")
+# new test line for code review
+print("This is a second test change for code review automation.")
