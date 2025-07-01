@@ -1,12 +1,19 @@
-# sample databricks utilities code
-dbutils.widgets.text("param", "default", "A test parameter")
-param_value = dbutils.widgets.get("param")
-print(f"Received parameter: {param_value}")
+# databricks_demo.py
 
-# list files in a Databricks directory
-files = dbutils.fs.ls("/databricks-datasets")
-for f in files:
-    print(f.name)
+# This script lists files in the Databricks datasets directory and prints their sizes.
+# Added: basic error handling, user input parameter for a subdirectory
 
-# new test line for code review
-print("This is a second test change for code review automation.")
+dbutils.widgets.text("subdir", "", "Subdirectory within /databricks-datasets")
+subdir = dbutils.widgets.get("subdir")
+
+path = f"/databricks-datasets/{subdir}" if subdir else "/databricks-datasets"
+
+try:
+    files = dbutils.fs.ls(path)
+    print(f"Files under {path}:")
+    for f in files:
+        print(f"{f.name} - size: {f.size}")
+except Exception as e:
+    print(f"Error listing files in {path}: {str(e)}")
+
+# TODO: add filtering by file type (e.g., only .csv files)
