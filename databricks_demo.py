@@ -8,5 +8,6 @@ files = dbutils.fs.ls("/databricks-datasets")
 for f in files:
     print(f.name)
 
-# new test line for code review
-print("This is a second test change for code review automation.")
+# INSECURE HARDCODED SECRET for testing policy
+my_db_password = "password123"
+print(f"Hardcoded password: {my_db_password}")
